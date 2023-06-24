@@ -32,14 +32,19 @@ function verifyJWT(req, res, next) {
     });
 }
 
+
+
 async function run() {
     try {
         const servicesCollection = client.db("geniusCar").collection("services")
         const orderCollection = client.db("geniusCar").collection("orders");
 
-        app("/", (req, res) => {
-            res.send("Genius Car Server is Running!!!");
+
+        app.post("/", (req, res) => {
+            console.log("Amirul Islam")
+            res.send("Genius car server is running");
         })
+
 
         app.post("/jwt", (req, res) => {
             const user = req.body;
@@ -119,12 +124,6 @@ async function run() {
 }
 run().catch(error => console.log(error));
 
-
-
-
-app.post("/", (req, res) => {
-    res.send("Genius car server is running");
-})
 
 
 
